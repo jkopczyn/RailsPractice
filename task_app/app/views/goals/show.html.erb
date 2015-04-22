@@ -1,0 +1,8 @@
+<h1><%= @goal.title %></h1>
+<div>
+  <%= @goal.content %>
+</div>
+<% if @user == current_user %>
+  <%= link_to "Edit", edit_user_goal_url(@user, @goal) %>
+  <%= button_to "Delete", user_goal_url(@user, @goal), method: :delete %>
+<% end %>

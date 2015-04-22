@@ -1,0 +1,14 @@
+<%   url = users_url
+button_text = "Sign up" %>
+
+<form action=<%= url %> method="post">
+  <label>Username
+    <input type="text" name="user[user_name]"> 
+  </label>
+<br>
+ <label>Password
+   <input type="password" name="user[password]">
+  </label>
+
+<input type="submit">
+</form>

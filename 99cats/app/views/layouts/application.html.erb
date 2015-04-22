@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>99Cats</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+<% @current = current_user %>
+<% unless @current.nil? %>
+  <h2>Hello <%=@current.user_name%>!</h2>
+    <%= button_to "Log out?", session_url, method: "delete" %>
+<% else %>
+  <%= link_to("Please log in!", new_session_url) %>
+<% end %>
+
+<br><br>
+
+<%= yield %>
+</body>
+</html>

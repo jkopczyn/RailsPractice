@@ -1,0 +1,13 @@
+<h2><%=title_text(@post) %></h2>
+<br>
+Appears on: <ul>
+  <% @post.subs.each do |sub| %>
+    <li> <%= sub.title %> </li>
+  <% end %>
+</ul>
+<br>
+<p><%= @post.content%></p>
+<br>
+<% if current_user == @post.author %>
+  <%= link_to "Edit this post", edit_post_url(@post) %>
+<% end %>

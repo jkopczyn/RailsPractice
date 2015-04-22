@@ -1,0 +1,11 @@
+<h1> <%= @user.username %> </h1>
+
+<h2> Goals </h2>
+<% @user.goals.each do |goal| %>
+  <% if current_user == @user || goal.public %>
+  <div>
+      <%= link_to( (goal.title), user_goal_url(@user, goal)) %><br>
+      <%= goal.content %>
+  </div>
+  <% end %>
+<% end %>

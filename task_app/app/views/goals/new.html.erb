@@ -1,0 +1,16 @@
+<h1>Create New Goal</h1>
+
+<form action="<%= user_goals_url(current_user) %>" method="post">
+  <input type="hidden" name="authenticity_token"
+                       value="<%= form_authenticity_token %>">
+
+  <label>Title
+    <input type="text" name="goal[title]">
+  </label>
+
+  <label>Content
+    <textarea rows=2 name="goal[content]"></textarea>
+  </label>
+
+  <input type="submit" value="Create Goal">
+</form>

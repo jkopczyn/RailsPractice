@@ -1,0 +1,30 @@
+<table>
+  <th>
+    <td> Name </td>
+    <td> Color </td>
+    <td> Sex </td>
+    <td> Birthdate </td>
+  </th>
+  <tr>
+    <td> </td>
+    <td> <%= @cat.name %> </td>
+    <td> <%= @cat.color %> </td>
+    <td> <%= @cat.sex %> </td>
+    <td> <%= @cat.birth_date %> </td>
+  </tr>
+</table>
+
+<p><%= @cat.description %></p>
+
+<ul name="rentals">
+<% @rental_requests.each do |request| %>
+  <li>Status <%= request.status %>,
+      Start: <%= request.start_date %>, End: <%= request.end_date %>,
+      User: <%= request.requester.user_name %>
+  <% if "Pending" == request.status && cats_owner(request) == current_user %>
+    <%= button_to "Approve", approve_request_url(request.id) %>
+    <%= button_to "Deny", deny_request_url(request.id) %>
+  <% end %>
+  </li>
+<% end %>
+</ul>

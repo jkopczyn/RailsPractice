@@ -1,0 +1,18 @@
+<h1>Editing Goal</h1>
+
+<form action="<%= user_goal_url(current_user, @goal) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <input type="hidden" name="authenticity_token"
+                       value="<%= form_authenticity_token %>">
+
+  <label>Title
+    <input type="text" name="goal[title]" value="<%= @goal.title %>">
+  </label>
+
+  <label>Content
+    <textarea rows=2 name="goal[content]"><%= @goal.content %></textarea>
+  </label>
+
+  <input type="submit" value="Revise Goal">
+</form>
